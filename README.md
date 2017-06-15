@@ -45,20 +45,18 @@ This is, by far, the worst option, for many reasons [1][2]. Adding support for `
 To run the benchmarks, you can either use `make bench` or run `go test -v -bench=. -benchmem ./...`. The following are the results I got in my desktop:
 
 ```code:go
-BenchmarkSmallSlice-8                     200000              8025 ns/op
-BenchmarkMediumSlice-8                       500           2821103 ns/op
-BenchmarkBigSlice-8                          300           5726493 ns/op
-BenchmarkSmallSequenceLoop-8              500000              3529 ns/op
-BenchmarkMediumSequenceLoop-8               1000           1708549 ns/op
-BenchmarkBigSequenceLoop-8                   500           3411812 ns/op
-BenchmarkSmallChannelIterator-8            10000            107744 ns/op
-BenchmarkMediumChannelIterator-8              20          56516534 ns/op
-BenchmarkBigChannelIterator-8                 10         113113557 ns/op
-BenchmarkSmallThreeClauseForLoop-8       3000000               528 ns/op
-BenchmarkMediumThreeClauseForLoop-8         5000            259942 ns/op
-BenchmarkBigThreeClauseForLoop-8            3000            526436 ns/op
-PASS
-ok      github.com/hgfischer/go-iter    20.067s
+BenchmarkSmallSlice-8                     200000              6748 ns/op           16512 B/op          4 allocs/op
+BenchmarkMediumSlice-8                       500           3034537 ns/op         8011908 B/op          4 allocs/op
+BenchmarkBigSlice-8                          200           5960648 ns/op        16007296 B/op          4 allocs/op
+BenchmarkSmallSequenceLoop-8              500000              3531 ns/op             128 B/op          2 allocs/op
+BenchmarkMediumSequenceLoop-8               1000           1717939 ns/op             128 B/op          2 allocs/op
+BenchmarkBigSequenceLoop-8                   500           3447407 ns/op             128 B/op          2 allocs/op
+BenchmarkSmallChannelIterator-8            10000            108716 ns/op           16512 B/op          4 allocs/op
+BenchmarkMediumChannelIterator-8              20          56450098 ns/op         8012062 B/op          4 allocs/op
+BenchmarkBigChannelIterator-8                 10         112913903 ns/op        16007483 B/op          4 allocs/op
+BenchmarkSmallThreeClauseForLoop-8       3000000               531 ns/op               0 B/op          0 allocs/op
+BenchmarkMediumThreeClauseForLoop-8         5000            261893 ns/op               0 B/op          0 allocs/op
+BenchmarkBigThreeClauseForLoop-8            3000            525303 ns/op               0 B/op          0 allocs/op
 ```
 
 ### Conclusion
