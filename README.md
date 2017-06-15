@@ -15,14 +15,14 @@ The `iter.Int` has support for 3 different idioms
 This is pretty similar to how the Python's `range` function works, which is generating the sequence and returning a list. The Go version in this package returns a slice, that can be iterated:
 
 ```code:go
-    for n := iter.NewIntSeq(iter.Start(1), iter.Stop(100), iter.Step(2)).All() {
+    for n := range iter.NewIntSeq(iter.Start(1), iter.Stop(100), iter.Step(2)).All() {
         fmt.Println(n)
     }
 ```
 
 ### Sequence Loop Idiom
 
-This basically encapsulates a 3-clause for loop in a struct. There is not a single advantage here. But let's just test anyway:
+This is close to how the Python's `xrange` function works. It basically encapsulates a 3-clause for loop in a struct. There is not a single advantage here. But let's just test anyway:
 
 ```code:go
     for seq, n := iter.NewIntSeqStart(iter.Stop(10), iter.Step(2)); seq.Continue(); seq.Get() {
