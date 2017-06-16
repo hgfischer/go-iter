@@ -32,7 +32,7 @@ This is close to how the Python's `xrange` function works. It basically encapsul
 
 ### Channel Iterator Idiom
 
-This is, by far, the worst option, for many reasons [1][2]. Adding support for `context.Context` helps a bit, but this is still a slow option, just for the sake of using `range`:
+This is, by far, the worst option, for many reasons including memory and resource leaks [1], and worse performance because of locking & context switching. Adding support for `context.Context` helps a bit, but this is still a slow option, just for the sake of using `range`:
 
 ```code:go
     for n := range iter.NewIntSeq(iter.Stop(100)).Iter() {
@@ -62,3 +62,7 @@ BenchmarkBigThreeClauseForLoop-8            3000            525303 ns/op        
 ### Conclusion
 
 This was a fun coding practice, but if you can, stick with the native 3-clause for loops. They are much simpler, and also the fastest option!
+
+## References
+
+[1] https://github.com/golang/go/issues/19702
